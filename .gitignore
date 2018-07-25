@@ -33,4 +33,4 @@
 *.app
 
 # Qt
-*.pro.use
+*.pro.user
