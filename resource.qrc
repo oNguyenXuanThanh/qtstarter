@@ -1,0 +1,29 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/addContract.png</file>
+        <file>images/addMenu.png</file>
+        <file>images/addUser.png</file>
+        <file>images/background.png</file>
+        <file>images/changePassword.png</file>
+        <file>images/changePasswordMenu.png</file>
+        <file>images/clientManagerMenu.png</file>
+        <file>images/company.png</file>
+        <file>images/companyMenu.png</file>
+        <file>images/contractManagerMenu.png</file>
+        <file>images/deleteMenu.png</file>
+        <file>images/deleteUser.png</file>
+        <file>images/exitMenu.png</file>
+        <file>images/logo.png</file>
+        <file>images/logoutMenu.png</file>
+        <file>images/searchService.png</file>
+        <file>images/searchUser.png</file>
+        <file>images/serviceManagerMenu.png</file>
+        <file>images/system.png</file>
+        <file>images/updateMenu.png</file>
+        <file>images/updateUser.png</file>
+        <file>images/userInfo.png</file>
+        <file>images/userInfoMenu.png</file>
+        <file>images/userManagerMenu.png</file>
+        <file>images/viewReportMenu.png</file>
+    </qresource>
+</RCC>

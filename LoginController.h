@@ -3,7 +3,8 @@
 
 #include "LoginForm.h"
 
-class LoginController {
+class LoginController
+{
 public:
     LoginController();
     ~LoginController();

@@ -1,20 +1,17 @@
 #ifndef LOGINFORM_H
 #define LOGINFORM_H
 
-#include <QMainWindow>
+#include <QLineEdit>
+#include "BaseForm.h"
 
-class LoginForm : public QMainWindow {
+class LoginForm : public BaseForm
+{
     Q_OBJECT
 public:
-    explicit LoginForm(QWidget *parent = nullptr);
-
+    LoginForm(QString title, int width, int height);
 private:
-    void setSize(int width, int height);
-    void centering();
-
-signals:
-
-public slots:
+    QLineEdit *txtUserName;
+    QLineEdit *txtPassword;
 };
 
 #endif // LOGINFORM_H
