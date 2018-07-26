@@ -1,17 +1,21 @@
-QT += gui widgets
+QT += gui widgets sql
 
 TEMPLATE = app
 
 SOURCES += \
         main.cpp \
-    LoginController.cpp \
-    LoginForm.cpp \
-    BaseForm.cpp
+    controllers/LoginController.cpp \
+    views/LoginForm.cpp \
+    views/BaseForm.cpp \
+    models/User.cpp \
+    views/RegisterForm.cpp
 
 HEADERS += \
-    LoginController.h \
-    LoginForm.h \
-    BaseForm.h
+    controllers/LoginController.h \
+    views/LoginForm.h \
+    views/BaseForm.h \
+    models/User.h \
+    views/RegisterForm.h
 
 RESOURCES += \
     resource.qrc

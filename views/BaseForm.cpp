@@ -1,5 +1,6 @@
 #include <QApplication>
 #include <QDesktopWidget>
+#include <QMessageBox>
 #include "BaseForm.h"
 
 BaseForm::BaseForm(QString title, int width, int height)
@@ -27,4 +28,9 @@ void BaseForm::centering()
     int posX = (desktopRect.width() - width()) / 2;
     int posY = (desktopRect.height() - height()) / 2;
     setGeometry(posX, posY, size().width(), size().height());
+}
+
+void BaseForm::showMessage(const QString &message)
+{
+    QMessageBox::information(this, "", message);
 }

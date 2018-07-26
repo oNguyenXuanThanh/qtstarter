@@ -12,6 +12,8 @@ public:
 private:
     void setSize(int width, int height);
     void centering();
+protected:
+    void showMessage(const QString &message);
 
 signals:
 

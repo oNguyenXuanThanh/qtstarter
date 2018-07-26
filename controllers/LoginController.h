@@ -1,16 +1,22 @@
 #ifndef LOGINCONTROLLER_H
 #define LOGINCONTROLLER_H
 
-#include "LoginForm.h"
+#include "../views/LoginForm.h"
+#include "../models/User.h"
 
-class LoginController
+class LoginController : public QObject
 {
+    Q_OBJECT
 public:
     LoginController();
     ~LoginController();
     void initLoginForm();
 private:
+    User* login(User *input);
+private:
     LoginForm *loginForm;
+private slots:
+    void loginButtonClicked();
 };
 
 #endif // LOGINCONTROLLER_H

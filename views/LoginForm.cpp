@@ -1,6 +1,5 @@
 #include <QLabel>
 #include <QWidget>
-#include <QPushButton>
 #include "LoginForm.h"
 
 LoginForm::LoginForm(QString title, int width, int height)
@@ -12,7 +11,6 @@ LoginForm::LoginForm(QString title, int width, int height)
     QLabel *lblUserName;
     QLabel *lblPassword;
     QLabel *lblRegister;
-    QPushButton *btnLogin;
 
     // wMain
     wMain = new QWidget(this);
@@ -34,7 +32,7 @@ LoginForm::LoginForm(QString title, int width, int height)
 
     // lblUserName
     lblUserName = new QLabel("Tên tài khoản", wMain);
-    lblUserName->setGeometry(txtUserName->frameGeometry().left() - 80, txtUserName->frameGeometry().top(), 80, 24);
+    lblUserName->setGeometry(txtUserName->frameGeometry().left() - 100, txtUserName->frameGeometry().top(), 80, 24);
 
     // txtPassword
     txtPassword = new QLineEdit(wMain);
@@ -43,15 +41,47 @@ LoginForm::LoginForm(QString title, int width, int height)
 
     // lblPassword
     lblPassword = new QLabel("Mật khẩu", wMain);
-    lblPassword->setGeometry(txtUserName->frameGeometry().left() - 80, txtPassword->frameGeometry().top(), 80, 24);
+    lblPassword->setGeometry(txtUserName->frameGeometry().left() - 100, txtPassword->frameGeometry().top(), 80, 24);
 
     // lblRegister
-    lblRegister = new QLabel("<font color=blue><u>Chưa có tài khoản? Đăng ký</u></font>", wMain);
+    lblRegister = new QLabel("<font color=blue><u>Đăng ký tài khoản</u></font>", wMain);
     lblRegister->setGeometry(0, txtPassword->frameGeometry().bottom() + 16, txtPassword->frameGeometry().right(), 24);
     lblRegister->setAlignment(Qt::AlignRight);
 
     // btnLogin
     btnLogin = new QPushButton("Đăng nhập", wMain);
-    btnLogin->setGeometry((width - 100) / 2, lblRegister->frameGeometry().bottom() + 10, 100, 24);
+    btnLogin->setGeometry((width - 100) / 2, lblRegister->frameGeometry().bottom() + 10, 100, 30);
 }
 
+void LoginForm::addLoginConnection(QObject *receiver, const char *slot)
+{
+    connect(btnLogin, SIGNAL(pressed()), receiver, slot);
+}
+
+bool LoginForm::validate()
+{
+    if (txtUserName->text().isEmpty())
+    {
+        showMessage("Vui lòng nhập tên tài khoản!");
+        txtUserName->setFocus();
+        return false;
+    } else if (txtPassword->text().isEmpty())
+    {
+        showMessage("Vui lòng nhập tên mật khẩu!");
+        txtPassword->setFocus();
+        return false;
+    }
+    return true;
+}
+
+User *LoginForm::getUser()
+{
+    if (validate())
+    {
+        User *user = new User;
+        user->setUserName(txtUserName->text().trimmed());
+        user->setPassword(txtPassword->text().trimmed());
+        return user;
+    }
+    return NULL;
+}
