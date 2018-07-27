@@ -27,7 +27,7 @@ User *LoginController::login(User *input)
     database.setPassword("thanh1402");
     if (!database.open())
     {
-        qDebug() << "Can't open database!";
+        qDebug() << "Can't open database! Reason: " << database.lastError().text();
         return NULL;
     }
     qDebug() << "Database connnected!";
@@ -37,12 +37,15 @@ User *LoginController::login(User *input)
     query.bindValue(1, input->getPassword());
     if (!query.exec())
     {
-        qDebug() << "Can't exec select query!";
+        qDebug() << "Can't exec select query! Reason: " << query.lastError().text();
         return NULL;
     }
     if (query.next())
     {
-        qDebug() << query.value("fullName");
+        loginForm->showMessage("Đăng nhập thành công!");
+    } else
+    {
+        loginForm->showMessage("Sai thông tin đăng nhập!");
     }
     return NULL;
 }

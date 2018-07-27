@@ -8,12 +8,11 @@ class BaseForm : public QMainWindow
     Q_OBJECT
 public:
     explicit BaseForm(QString title, int width, int height);
+    void showMessage(const QString &message);
 
 private:
     void setSize(int width, int height);
     void centering();
-protected:
-    void showMessage(const QString &message);
 
 signals:
 
